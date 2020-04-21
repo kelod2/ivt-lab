@@ -82,8 +82,10 @@ public class GT4500 implements SpaceShip {
 
         //Ha mindkettoben van, akkor lovunk, kulonben nem sikerul egyszerre a kettobol
         if(!primaryTorpedoStore.isEmpty()&&!secondaryTorpedoStore.isEmpty()){
+          System.out.println("ide belepek");
           boolean primary_success = primaryTorpedoStore.fire(1);
           boolean secondary_success = secondaryTorpedoStore.fire(1);
+          System.out.println("primary = " + primary_success + " Secondary = " + secondary_success);
           firingSuccess = primary_success && secondary_success;
           if(primary_success){
             wasPrimaryFiredLast = true;
