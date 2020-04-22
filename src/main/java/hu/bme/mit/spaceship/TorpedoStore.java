@@ -16,15 +16,15 @@ public class TorpedoStore {
 
   private int torpedoCount = 0;
 
-  private Random rand;
+  private Random rand = new Random();
 
   public TorpedoStore(int numberOfTorpedos) {
     this.torpedoCount = numberOfTorpedos;
-    try {
+    /*try {
       this.rand = SecureRandom.getInstanceStrong();
     } catch (NoSuchAlgorithmException e) {
       e.printStackTrace();
-    }
+    }*/
 
     // update failure rate if it was specified in an environment variable
     String failureEnv = System.getenv("IVT_RATE");
@@ -39,7 +39,8 @@ public class TorpedoStore {
 
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
-      throw new IllegalArgumentException("numberOfTorpedos");
+      //throw new IllegalArgumentException("numberOfTorpedos");
+      assert(1==0);
     }
 
     boolean success = false;
